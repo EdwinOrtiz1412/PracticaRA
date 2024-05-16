@@ -441,7 +441,7 @@
         <img id="icon-micro" src="Assets/icons/microfono.png" />
         <img id="icon-idea" src="Assets/icons/idea.png" />
         <img id="icon-web" src="Assets/icons/web.png" />
-        <img id="icon-info" src="Assets/icons/info.png" />
+        <img id="icon-info" src="Assets/icons/informacionP.png" />
         <img id="icon-git" src="Assets/icons/github.png" />
         <img id="icon-play" src="Assets/icons/play.png" />
         <img id="icon-left" src="Assets/icons/left.png" />
@@ -530,7 +530,7 @@
   var SpeechRecognitionEvent = SpeechRecognitionEvent || webkitSpeechRecognitionEvent
 
   var arreglovoz = ['Hola yakuin',
-    'yakuin Dime un dato curioso',
+    'yakuin dime un dato curioso',
     'yakuin ¿que es GitHub?',
     'yakuin Qué es github',
     'gracias yakuin',
@@ -603,9 +603,9 @@
     }
 
     // Interacciones iniciales
-    if (voz === 'Hola yakuin') {
+    if (voz === 'Hola') {
       console.log("Hola, estas saludando!");
-      let utterance = new SpeechSynthesisUtterance('Hola amigo, bienvenido. Estoy listo y preparado para resolver tus dudas. Te escucho...')
+      let utterance = new SpeechSynthesisUtterance('Hola amigo, bienvenido al Tecnologico de tlaxiaco. Te escucho...')
       utterance.lang = 'es-MX'
       speechSynthesis.speak(utterance)
     }
@@ -633,7 +633,7 @@
       speechSynthesis.speak(utterance)
     }
 
-    if (voz === 'yakuin Dime un dato curioso') {
+    if (voz === 'yakuin dime un dato curioso') {
       console.log("Hola, estas pregutando!");
       var datos = ['¿Sabías que... Existe una comunidad en línea dedicada a mí? En esta puedes encontrar imágenes de mis distintas facetas que puedes utilizar gratuitamente como avatar de tu usuario de GitHub, para obtener más información visita: octodex.GitHub.com.',
         '¿Sabias que.. en el año 2013 la marca decide cambiar radicalmente la tipografía del logotipo de GitHub y elimina información innecesaria de esta?, si como escuchas, ya que la plataforma para ese entonces había ganado muchísima fama la plataforma decide eliminar la leyenda "social coding" del logotipo y se decide incorporarme como imagen de la empresa, de esta forma seria más fácil para el usuario recordar un pulpo con cabeza de gato en la parte superior de la leyenda "GitHub" que un par de letras.',

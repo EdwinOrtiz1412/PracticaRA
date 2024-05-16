@@ -4,33 +4,35 @@ window.contadorcubogrande=0;
   var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList
   var SpeechRecognitionEvent = SpeechRecognitionEvent || webkitSpeechRecognitionEvent
 
-      var arreglovoz = [  'Hola mascota',
-            'yakuin Dime un dato curioso',
-            'yakuin ¿que es GitHub?',
-            'yakuin Qué es github',
-            'gracias yakuin',
-            'yakuin eso es todo por ahora',
-            'yakuin preséntate',
-            'yakuin muéstrame a IronCat',
-            'yakuin Muéstrame a Iron Cat',
-            'yakuin Muéstrame a Iron Man',  
-            'Muéstrame a Iron Cat', 
-            'Muéstrame Iron Cat',              
-            'yakuin muéstrame a IronCat más grande',
-            'yakuin Muéstrame a Iron Cat más grande', 
-            'yakuin Muéstrame Iron Man más grande', 
-            'Muéstrame a Iron Cat más grande', 
-            'Muéstrame Iron Cat más grande', 
-            'yakuin muéstrame a IronCat más pequeño',
-            'yakuin Muéstrame ironcat más pequeño',
-            'yakuin Muéstrame a Iron Cat más pequeño',
-            'yakuin Muéstrame Iron Cat más pequeño',
-            'yakuin Haz que Iron Cat desaparezca',
-            'yakuin Haz que ironcat desaparezca', 
-            'yakuin regresa al escenario',
-            'realidad muestra un segundo modelo 3D',
-            'realidad regresa al cubo',
-            'realidad animación'];
+  var arreglovoz = ['Hola ',
+  'gracias',
+  'Eso es todo por ahora',
+  'puedes presentarte',
+  'dime tus caracteristicas',
+  '¿que eres?',
+  'oferta educativa',
+  'yakuin muéstrame a IronCat',
+  'yakuin Muéstrame a Iron Cat',
+  'yakuin Muéstrame a Iron Man',
+  'Muéstrame a Iron Cat',
+  'Muéstrame Iron Cat',
+  'yakuin muéstrame a IronCat más grande',
+  'yakuin Muéstrame a Iron Cat más grande',
+  'yakuin Muéstrame Iron Man más grande',
+  'Muéstrame a Iron Cat más grande',
+  'Muéstrame Iron Cat más grande',
+  'yakuin muéstrame a IronCat más pequeño',
+  'yakuin Muéstrame ironcat más pequeño',
+  'yakuin Muéstrame a Iron Cat más pequeño',
+  'yakuin Muéstrame Iron Cat más pequeño',
+  'yakuin Haz que Iron Cat desaparezca',
+  'yakuin Haz que ironcat desaparezca',
+  'yakuin regresa al escenario',
+  'yakuin regresa a la escena',
+  'yakuin vuelve',
+  'yakuin muéstrame la luna',
+  'yakuin Muéstrame la luna',
+];
 
 var grammar = '#JSGF V1.0; grammar arreglovoz; public <arreglovoz> = ' + arreglovoz.join(' | ') + ' ;'
 
@@ -75,57 +77,54 @@ var result=array[rand];
 return result;
 }
 
-// Interacciones iniciales
-if(voz === 'Hola mascota'){
-console.log("Hola, estas saludando!");
-let utterance = new SpeechSynthesisUtterance('Hola amigo, bienvenido. Estoy listo y preparado para resolver tus dudas. Te escucho...')
-utterance.lang = 'es-MX'
-speechSynthesis.speak(utterance)     
-}
+
+    // Interacciones iniciales
+    if (voz === 'Hola') {
+      console.log("Hola, estas saludando!");
+      let utterance = new SpeechSynthesisUtterance('Hola amigo,  te doy la bienvenida al Tecnologico de Tlaxiaco. . Que te gustaria saber...')
+      utterance.lang = 'es-MX'
+      speechSynthesis.speak(utterance)
+    }
 
 
-if(voz === 'gracias yakuin'){
-console.log("Estas dando las gracias");
-let utterance = new SpeechSynthesisUtterance('de nada amigo, quieres que te ayude con algo mas?')
-utterance.lang = 'es-MX'
-speechSynthesis.speak(utterance)   
-}
+    if (voz === 'gracias ') {
+      console.log("Estas dando las gracias");
+      let utterance = new SpeechSynthesisUtterance('de nada amigo, quieres que te ayude con algo mas?')
+      utterance.lang = 'es-MX'
+      speechSynthesis.speak(utterance)
+    }
 
 
-if(voz === 'yakuin eso es todo por ahora'){
-console.log("Hola, estas saludando!");
-let utterance = new SpeechSynthesisUtterance('de nada amigo, siempre es un placer ayudarte.')
-utterance.lang = 'es-MX'
-speechSynthesis.speak(utterance)     
-}
+    if (voz === 'Eso es todo por ahora') {
+      console.log("Hola, estas saludando!");
+      let utterance = new SpeechSynthesisUtterance('de nada amigo, siempre es un placer ayudarte.')
+      utterance.lang = 'es-MX'
+      speechSynthesis.speak(utterance)
+    }
 
-if(voz === 'yakuin preséntate'){
-console.log("yakuin se esta presentando!");
-let utterance = new SpeechSynthesisUtterance('Hola, mi nombre es yakuin mascota y logotipo de GitHub, mi nombre e imagen hacen referencia a la estructura y las ramificaciones de mi cuerpo, es decir, la cabeza es mi rama principal y mis tentáculos las ramificaciones de ella, por lo que se asemeja a la estructura y funcionamiento de un repositorio de GitHub.')
-utterance.lang = 'es-MX'
-speechSynthesis.speak(utterance)     
-}
+    if (voz === 'puedes presentarte') {
+      console.log("yakuin se esta presentando!");
+      let utterance = new SpeechSynthesisUtterance('¡Hola! Soy Yakuin, un armadillo endémico de la región Mixteca, en Oaxaca, México. Me enorgullece ser la mascota del Tecnológico de Tlaxiaco, ya que represento los valores fundamentales de esta institución.')
+      utterance.lang = 'es-MX'
+      speechSynthesis.speak(utterance)
+    }
 
-if(voz === 'yakuin Dime un dato curioso'){
-console.log("Hola, estas pregutando!");
-var datos=['¿Sabías que... Existe una comunidad en línea dedicada a mí? En esta puedes encontrar imágenes de mis distintas facetas que puedes utilizar gratuitamente como avatar de tu usuario de GitHub, para obtener más información visita: octodex.GitHub.com.', 
-'¿Sabias que.. en el año 2013 la marca decide cambiar radicalmente la tipografía del logotipo de GitHub y elimina información innecesaria de esta?, si como escuchas, ya que la plataforma para ese entonces había ganado muchísima fama la plataforma decide eliminar la leyenda "social coding" del logotipo y se decide incorporarme como imagen de la empresa, de esta forma seria más fácil para el usuario recordar un pulpo con cabeza de gato en la parte superior de la leyenda "GitHub" que un par de letras.',
-'¿Sabias que... GitHub fue desarrollado por Chris Wanstrath, P. J. Hyett, Tom Preston-Werner y Scott Chacon usando Ruby on Rails durante el 2008?, si, GitHub fue desarrollado por tecnología de código abierto y publicado durante el 2008, no obstante, la compañía ya existía y estaba registrada desde el 2007.',
-'¿Sabías que.. en México solo existen 8 campus GitHub en todo el país y uno de ellos se encuentra en Tlaxiaco? ¡Así es! el Instituto Tecnológico de Tlaxiaco es el único campus en Oaxaca que colabora directamente con GitHub.',
-'Sabías que.. En una entrevista hecha a PJ Hyett en 2014, menciona que Tom Preston-Werner (otro cofundador) buscaba una imagen divertida en iStockphoto para la página de error de GitHub, cuando encontró mi imagen entre las miles de imágenes de la plataforma, a Tom Preston le gustan mucho los gatos así que le pareció muy ingeniosa mi imagen, además este tenía tentáculos que parecían ramificaciones salidas de su cuerpo tal cual es la estructura de un repositorio de GitHub, mi imagen le gusto tanto a Tom Preston que lo compro por tan solo 50 dolares, ahora soy una de las imágenes más reconocidas a nivel mundial de una de las compañías con más auge en el mundo.',
-];
-var result= randD(datos);  
-let utterance = new SpeechSynthesisUtterance(result);
-utterance.lang = 'es-MX'
-speechSynthesis.speak(utterance)     
-}
+    if (voz === 'dime tus caracteristicas') {
+      console.log("Hola, estas pregutando!");
+      var datos = [' Me verás como un armadillo de color azul, con detalles en blanco y naranja. Llevo con orgullo un escudo con el logotipo del Tecnológico en mi pecho y una gorra de graduación en mi cabeza, porque me encanta representar el espíritu académico y el compromiso con el éxito educativo',
+      ];
+      var result = randD(datos);
+      let utterance = new SpeechSynthesisUtterance(result);
+      utterance.lang = 'es-MX'
+      speechSynthesis.speak(utterance)
+    }
 
-if(voz === 'yakuin ¿que es GitHub?' || voz === 'yakuin Qué es github'){
-console.log("Hola, estas preguntando!");
-let utterance = new SpeechSynthesisUtterance('GitHub es una plataforma de almacenamiento y desarrollo colaborativo de software ("social coding"), propiedad de Microsoft, que ofrece a los desarrolladores y participantes de la comunidad la posibilidad de crear repositorios de códigos y guardarlos en la nube de forma segura, utilizando un sistema de control de versiones (VCS), llamado Git. Es decir, permite alojar repositorios en la nube para gestionarlos y organizarlos de una mejor manera, con ello se mejorar el flujo de trabajo permitiendo la colaboración de desarrolladores en tiempo real desde cualquier parte del mundo, todo esto de manera gratuita.')
-utterance.lang = 'es-MX'
-speechSynthesis.speak(utterance)     
-} 
+    if (voz === ' ¿que eres?' || voz === ' Qué eres') {
+      console.log("Hola, estas preguntando!");
+      let utterance = new SpeechSynthesisUtterance('Yakuin es más que una simple mascota, es un símbolo de identidad y orgullo para la comunidad del Tecnológico de Tlaxiaco')
+      utterance.lang = 'es-MX'
+      speechSynthesis.speak(utterance)
+    }
 //interaccion con RA         
 if(voz === 'yakuin muéstrame a IronCat' || voz === 'yakuin Muéstrame a Iron Cat'  || voz === 'yakuin Muéstrame a Iron Man'  || voz === 'Muéstrame a Iron Cat' || voz === 'Muéstrame Iron Cat'){
 console.log("Estas queriendo visualizar el modelo ironcat");
@@ -205,6 +204,44 @@ var el = document.querySelector('#avatar');
   speechSynthesis.speak(utterance)
  
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+  // Función para mostrar el video de YouTube relacionado con la oferta educativa
+  function mostrarOfertaEducativa() {
+    // Enlace del video de YouTube relacionado con la oferta educativa
+    const enlaceVideo = 'https://www.youtube.com/embed/Jr9vGSYu6lY';
+
+    // Selecciona el elemento en el que deseas incrustar el video (puedes cambiar el ID si es necesario)
+    const contenedorVideo = document.getElementById('videoContainer');
+
+    // Crea un elemento iframe
+    const iframe = document.createElement('iframe');
+
+    // Establece los atributos del iframe
+    iframe.setAttribute('src', enlaceVideo);
+    iframe.setAttribute('width', '560'); // Ancho del video (puedes ajustar según tus necesidades)
+    iframe.setAttribute('height', '315'); // Altura del video (puedes ajustar según tus necesidades)
+    iframe.setAttribute('frameborder', '0');
+    iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+    iframe.setAttribute('allowfullscreen', 'true');
+
+    // Agrega el iframe al contenedor de video
+    contenedorVideo.appendChild(iframe);
+  }
+
+  // Interacción del usuario
+  const voz = ''; // Aquí deberías obtener la voz del usuario
+
+  if (voz === 'oferta educativa') {
+    console.log("Mostrando la oferta educativa.");
+
+    // Aquí puedes agregar el código para narrar lo que está sucediendo antes de mostrar la oferta educativa, si lo deseas
+
+    mostrarOfertaEducativa();
+  }
+});
+
+
 if(voz === 'realidad muestra un modelo 3D'){
 console.log("Estas mostrando un modelo 3D");
 var es = document.querySelector('#entityID1');

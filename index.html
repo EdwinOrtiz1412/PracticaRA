@@ -311,6 +311,9 @@
 </head>
 
 <body>
+  <h1>Video de Oferta Educativa</h1>
+
+  <div id="videoContainer"></div>
   <div class="contenedor">
     <svg class="carga" width="1000" height="1000" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg"
       version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -357,7 +360,7 @@
       device-orientation-permission-ui="enabled: false" loading-screen="backgroundColor: black">
       <a-assets>
         <img id="card" src="assets/Cardq.jpeg" />
-        <img id="icon-micro" src="Assets/icons/microfono.png" />
+        <img id="icon-micro" src="Assets/icons/radio.png" />
         <img id="icon-idea" src="Assets/icons/idea.png" />
         <img id="icon-web" src="Assets/icons/web.png" />
         <img id="icon-info" src="Assets/icons/info.png" />
@@ -371,8 +374,7 @@
         <img id="coffeemachine-preview" src="Assets/portfolio/1.png" />
         <img id="peak-preview" src="Assets/portfolio/2.png" />
 
-        <a-asset-item id="Modelo3D"
-          src="Assets/Yakuin Colorbboy.glb">
+        <a-asset-item id="Modelo3D" src="Assets/Yakuin Colorbboy.glb">
         </a-asset-item>
         <!-- a-asset-item id="iron" src="https://cdn.glitch.global/16b440ad-e892-4085-9aee-0cf4887d328f/iron.glb?v=1653086416853"></a-asset-item>
           <a-asset-item id="luna" src="https://cdn.glitch.global/16b440ad-e892-4085-9aee-0cf4887d328f/LUNA.glb?v=1653087819401"></a-asset-item -->
@@ -416,7 +418,7 @@
           animation="property: scale; to: 1.2 1.2 1.2; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate">
         </a-image>
 
-    <!--    <a-image visible=false id="idea-button" class="clickable" src="#icon-idea" alpha-test="0.5"
+        <!--    <a-image visible=false id="idea-button" class="clickable" src="#icon-idea" alpha-test="0.5"
           position="0.0 -0.5 0" height="0.15" width="0.15"
           animation="property: scale; to: 1.2 1.2 1.2; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate">
         </a-image>
@@ -434,12 +436,12 @@
         <a-gltf-model id="avatar" rotation="0 180 0" position="0 -0.25 0" scale="0.1 0.1 0.1" src="#Modelo3D"
           animation-mixer>
         </a-gltf-model>
-        
+
         <a-text id="text" class="clickable"
-        value="Da clic sobre alguno de los botones para ver la funcionalidad de la aplicación" color="white"
-        align="center" width="1" position="0 -1.001 0" geometry="primitive:plane; height: 0.5; width: 1.4;"
-        material="color: black; opacity: 0.5"></a-text>
-      
+          value="Da clic sobre alguno de los botones para ver la funcionalidad de la aplicación" color="white"
+          align="center" width="1" position="0 -1.001 0" geometry="primitive:plane; height: 0.5; width: 1.4;"
+          material="color: black; opacity: 0.5"></a-text>
+
       </a-entity>
     </a-scene>
   </div>
@@ -451,13 +453,13 @@
   var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList
   var SpeechRecognitionEvent = SpeechRecognitionEvent || webkitSpeechRecognitionEvent
 
-  var arreglovoz = ['Hola yakuin',
-    'yakuin Dime un dato curioso',
-    'yakuin ¿que es GitHub?',
-    'yakuin Qué es github',
-    'gracias yakuin',
-    'yakuin eso es todo por ahora',
-    'yakuin preséntate',
+  var arreglovoz = ['Hola ',
+    'gracias',
+    'Eso es todo por ahora',
+    'puedes presentarte',
+    'dime tus caracteristicas',
+    '¿que eres?',
+    ' oferta educativa',
     'yakuin muéstrame a IronCat',
     'yakuin Muéstrame a Iron Cat',
     'yakuin Muéstrame a Iron Man',
@@ -525,15 +527,15 @@
     }
 
     // Interacciones iniciales
-    if (voz === 'Hola mascota') {
+    if (voz === 'Hola') {
       console.log("Hola, estas saludando!");
-      let utterance = new SpeechSynthesisUtterance('Hola amigo, bienvenido. Estoy listo y preparado para resolver tus dudas. Te escucho...')
+      let utterance = new SpeechSynthesisUtterance('Hola amigo,  te doy la bienvenida al Tecnologico de Tlaxiaco. . Que te gustaria saber...')
       utterance.lang = 'es-MX'
       speechSynthesis.speak(utterance)
     }
 
 
-    if (voz === 'gracias yakuin') {
+    if (voz === 'gracias ') {
       console.log("Estas dando las gracias");
       let utterance = new SpeechSynthesisUtterance('de nada amigo, quieres que te ayude con algo mas?')
       utterance.lang = 'es-MX'
@@ -541,27 +543,23 @@
     }
 
 
-    if (voz === 'yakuin eso es todo por ahora') {
+    if (voz === 'Eso es todo por ahora') {
       console.log("Hola, estas saludando!");
       let utterance = new SpeechSynthesisUtterance('de nada amigo, siempre es un placer ayudarte.')
       utterance.lang = 'es-MX'
       speechSynthesis.speak(utterance)
     }
 
-    if (voz === 'yakuin preséntate') {
+    if (voz === 'puedes presentarte') {
       console.log("yakuin se esta presentando!");
-      let utterance = new SpeechSynthesisUtterance('Hola, mi nombre es yakuin mascota y logotipo de GitHub, mi nombre e imagen hacen referencia a la estructura y las ramificaciones de mi cuerpo, es decir, la cabeza es mi rama principal y mis tentáculos las ramificaciones de ella, por lo que se asemeja a la estructura y funcionamiento de un repositorio de GitHub.')
+      let utterance = new SpeechSynthesisUtterance('¡Hola! Soy Yakuin, un armadillo endémico de la región Mixteca, en Oaxaca, México. Me enorgullece ser la mascota del Tecnológico de Tlaxiaco, ya que represento los valores fundamentales de esta institución.')
       utterance.lang = 'es-MX'
       speechSynthesis.speak(utterance)
     }
 
-    if (voz === 'yakuin Dime un dato curioso') {
+    if (voz === 'dime tus caracteristicas') {
       console.log("Hola, estas pregutando!");
-      var datos = ['¿Sabías que... Existe una comunidad en línea dedicada a mí? En esta puedes encontrar imágenes de mis distintas facetas que puedes utilizar gratuitamente como avatar de tu usuario de GitHub, para obtener más información visita: octodex.GitHub.com.',
-        '¿Sabias que.. en el año 2013 la marca decide cambiar radicalmente la tipografía del logotipo de GitHub y elimina información innecesaria de esta?, si como escuchas, ya que la plataforma para ese entonces había ganado muchísima fama la plataforma decide eliminar la leyenda "social coding" del logotipo y se decide incorporarme como imagen de la empresa, de esta forma seria más fácil para el usuario recordar un pulpo con cabeza de gato en la parte superior de la leyenda "GitHub" que un par de letras.',
-        '¿Sabias que... GitHub fue desarrollado por Chris Wanstrath, P. J. Hyett, Tom Preston-Werner y Scott Chacon usando Ruby on Rails durante el 2008?, si, GitHub fue desarrollado por tecnología de código abierto y publicado durante el 2008, no obstante, la compañía ya existía y estaba registrada desde el 2007.',
-        '¿Sabías que.. en México solo existen 8 campus GitHub en todo el país y uno de ellos se encuentra en Tlaxiaco? ¡Así es! el Instituto Tecnológico de Tlaxiaco es el único campus en Oaxaca que colabora directamente con GitHub.',
-        'Sabías que.. En una entrevista hecha a PJ Hyett en 2014, menciona que Tom Preston-Werner (otro cofundador) buscaba una imagen divertida en iStockphoto para la página de error de GitHub, cuando encontró mi imagen entre las miles de imágenes de la plataforma, a Tom Preston le gustan mucho los gatos así que le pareció muy ingeniosa mi imagen, además este tenía tentáculos que parecían ramificaciones salidas de su cuerpo tal cual es la estructura de un repositorio de GitHub, mi imagen le gusto tanto a Tom Preston que lo compro por tan solo 50 dolares, ahora soy una de las imágenes más reconocidas a nivel mundial de una de las compañías con más auge en el mundo.',
+      var datos = [' Me verás como un armadillo de color azul, con detalles en blanco y naranja. Llevo con orgullo un escudo con el logotipo del Tecnológico en mi pecho y una gorra de graduación en mi cabeza, porque me encanta representar el espíritu académico y el compromiso con el éxito educativo',
       ];
       var result = randD(datos);
       let utterance = new SpeechSynthesisUtterance(result);
@@ -569,9 +567,9 @@
       speechSynthesis.speak(utterance)
     }
 
-    if (voz === 'yakuin ¿que es GitHub?' || voz === 'yakuin Qué es github') {
+    if (voz === ' ¿que eres?' || voz === ' Qué eres') {
       console.log("Hola, estas preguntando!");
-      let utterance = new SpeechSynthesisUtterance('GitHub es una plataforma de almacenamiento y desarrollo colaborativo de software ("social coding"), propiedad de Microsoft, que ofrece a los desarrolladores y participantes de la comunidad la posibilidad de crear repositorios de códigos y guardarlos en la nube de forma segura, utilizando un sistema de control de versiones (VCS), llamado Git. Es decir, permite alojar repositorios en la nube para gestionarlos y organizarlos de una mejor manera, con ello se mejorar el flujo de trabajo permitiendo la colaboración de desarrolladores en tiempo real desde cualquier parte del mundo, todo esto de manera gratuita.')
+      let utterance = new SpeechSynthesisUtterance('Yakuin es más que una simple mascota, es un símbolo de identidad y orgullo para la comunidad del Tecnológico de Tlaxiaco')
       utterance.lang = 'es-MX'
       speechSynthesis.speak(utterance)
     }
@@ -654,6 +652,44 @@
       speechSynthesis.speak(utterance)
 
     }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      // Función para mostrar el video de YouTube relacionado con la oferta educativa
+      function mostrarOfertaEducativa() {
+        // Enlace del video de YouTube relacionado con la oferta educativa
+        const enlaceVideo = 'https://www.youtube.com/embed/Jr9vGSYu6lY';
+
+        // Selecciona el elemento en el que deseas incrustar el video (puedes cambiar el ID si es necesario)
+        const contenedorVideo = document.getElementById('videoContainer');
+
+        // Crea un elemento iframe
+        const iframe = document.createElement('iframe');
+
+        // Establece los atributos del iframe
+        iframe.setAttribute('src', enlaceVideo);
+        iframe.setAttribute('width', '560'); // Ancho del video (puedes ajustar según tus necesidades)
+        iframe.setAttribute('height', '315'); // Altura del video (puedes ajustar según tus necesidades)
+        iframe.setAttribute('frameborder', '0');
+        iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+        iframe.setAttribute('allowfullscreen', 'true');
+
+        // Agrega el iframe al contenedor de video
+        contenedorVideo.appendChild(iframe);
+      }
+
+      // Interacción del usuario
+      const voz = ''; // Aquí deberías obtener la voz del usuario
+
+      if (voz === ' oferta educativa') {
+        console.log("Mostrando la oferta educativa.");
+
+        // Aquí puedes agregar el código para narrar lo que está sucediendo antes de mostrar la oferta educativa, si lo deseas
+
+        mostrarOfertaEducativa();
+      }
+    });
+
+
     if (voz === 'yakuin muéstrame la luna' || voz === 'yakuin Muéstrame la luna') {
       console.log("Estas mostrando un modelo 3D");
       var es = document.querySelector('#avatar');
@@ -683,5 +719,6 @@
     diagnostic.setAttribute("value", 'Ocurrio un error al escucharte: ' + event.error);
   }
 </script>
+
 
 </html>
