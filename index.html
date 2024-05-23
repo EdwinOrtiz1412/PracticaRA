@@ -9,6 +9,60 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+
+  <style>
+    .galeria {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    .galeria img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .galeria p {
+      font-size: 16px;
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .imagen-galeria {
+      width: 300px;
+      /* Ajusta este valor según tus necesidades */
+      height: auto;
+    }
+
+    .galeria-fotos {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .imagen-galeria-foto {
+      width: 150px;
+      /* Ajusta este valor según tus necesidades */
+      height: auto;
+      border: 2px solid #ccc;
+      border-radius: 5px;
+      margin-right: 60px;
+      animation: desplazamiento 10s linear infinite;
+    }
+
+    @keyframes desplazamiento {
+      0% {
+        transform: translateX(100%);
+      }
+
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+  </style>
   <script>
     const showInfo = () => {
       let y = 0;
@@ -311,7 +365,8 @@
 </head>
 
 <body>
-  <h1>Video de Oferta Educativa</h1>
+  <div id="galeriaContainer"></div>
+
 
   <div id="videoContainer"></div>
   <div class="contenedor">
@@ -375,6 +430,8 @@
         <img id="peak-preview" src="Assets/portfolio/2.png" />
 
         <a-asset-item id="Modelo3D" src="Assets/Yakuin Colorbboy.glb">
+
+
         </a-asset-item>
         <!-- a-asset-item id="iron" src="https://cdn.glitch.global/16b440ad-e892-4085-9aee-0cf4887d328f/iron.glb?v=1653086416853"></a-asset-item>
           <a-asset-item id="luna" src="https://cdn.glitch.global/16b440ad-e892-4085-9aee-0cf4887d328f/LUNA.glb?v=1653087819401"></a-asset-item -->
@@ -401,6 +458,8 @@
             <a-image class="clickable" src="#peak-preview" alpha-test="0.5" position="0 0 0" height="0.552" width="1">
             </a-image>
           </a-entity>
+
+
 
           <a-image visible=false id="portfolio-left-button" class="clickable" src="#icon-left" position="-0.7 0 0"
             height="0.15" width="0.15"></a-image>
@@ -437,6 +496,7 @@
           animation-mixer>
         </a-gltf-model>
 
+
         <a-text id="text" class="clickable"
           value="Da clic sobre alguno de los botones para ver la funcionalidad de la aplicación" color="white"
           align="center" width="1" position="0 -1.001 0" geometry="primitive:plane; height: 0.5; width: 1.4;"
@@ -444,7 +504,9 @@
 
       </a-entity>
     </a-scene>
+
   </div>
+  <div id="galeriaContainer"></div>
 </body>
 <script>
   window.contador = 0;
@@ -459,15 +521,15 @@
     'puedes presentarte',
     'dime tus caracteristicas',
     '¿que eres?',
-    ' oferta educativa',
-    'yakuin muéstrame a IronCat',
-    'yakuin Muéstrame a Iron Cat',
-    'yakuin Muéstrame a Iron Man',
-    'Muéstrame a Iron Cat',
-    'Muéstrame Iron Cat',
-    'yakuin muéstrame a IronCat más grande',
-    'yakuin Muéstrame a Iron Cat más grande',
-    'yakuin Muéstrame Iron Man más grande',
+    'oferta educativa',
+    'carreras',
+    'Galeria',
+    'saluda',
+    'Saluda',
+    'SALUDA',
+    'primera foto',
+    'imagenes de carreras',
+    'ubicacion',
     'Muéstrame a Iron Cat más grande',
     'Muéstrame Iron Cat más grande',
     'yakuin muéstrame a IronCat más pequeño',
@@ -567,13 +629,127 @@
       speechSynthesis.speak(utterance)
     }
 
-    if (voz === ' ¿que eres?' || voz === ' Qué eres') {
+    if (voz === ' ¿que eres?' || voz === 'Qué eres') {
       console.log("Hola, estas preguntando!");
       let utterance = new SpeechSynthesisUtterance('Yakuin es más que una simple mascota, es un símbolo de identidad y orgullo para la comunidad del Tecnológico de Tlaxiaco')
       utterance.lang = 'es-MX'
       speechSynthesis.speak(utterance)
     }
-    //interaccion con RA         
+
+
+    //interaccion con RA    
+    
+
+
+
+
+    //Funciona  bien 
+    if (voz === 'oferta educativa') {
+      console.log("Estás solicitando información sobre la oferta educativa.");
+
+      // Nuevo enlace de YouTube
+      var nuevoEnlace = 'https://www.youtube.com/watch?v=Jr9vGSYu6lY&t=4s&ab_channel=TecNM-Tlaxiaco';
+
+      // Obtener el ID del video de YouTube del nuevo enlace
+      var nuevoVideoId = nuevoEnlace.split('v=')[1];
+      var ampersandPosition = nuevoVideoId.indexOf('&');
+      if (ampersandPosition !== -1) {
+        nuevoVideoId = nuevoVideoId.substring(0, ampersandPosition);
+      }
+
+      // URL del nuevo video de YouTube con la clave de la API
+      var nuevoVideoUrl = 'https://www.youtube.com/embed/' + nuevoVideoId + '?enablejsapi=1&origin=https://example.com';
+
+      // Obtener el elemento de video en tu escena y establecer la nueva fuente
+      var videoElement = document.querySelector("#videoContainer");
+      videoElement.innerHTML = '<iframe width="560" height="315" src="' + nuevoVideoUrl + '" frameborder="0" allowfullscreen></iframe>';
+
+      let utterance = new SpeechSynthesisUtterance('Aquí tienes información sobre nuestra oferta educativa.');
+      utterance.lang = 'es-MX';
+      speechSynthesis.speak(utterance);
+    }
+    //Funciona bien
+    if (voz === 'primera foto') {
+      console.log("Estás solicitando una galería de imágenes.");
+
+      // URL de la imagen y descripción
+      var imagenURL = 'https://cdn.glitch.global/1d48e5a5-8dae-4481-9953-618b1f2a3c42/OE_1_2020.png?v=1716053765411';
+      var descripcion = 'El Tecnológico de Tlaxiaco ha jugado un papel importante en la educación superior de la región Mixteca, formando profesionales comprometidos con el desarrollo de su comunidad.';
+
+      // Generar el HTML para la imagen y su descripción
+      var galeriaHTML = '<div class="galeria">';
+      galeriaHTML += '<img src="' + imagenURL + '" alt="Imagen de la oferta educativa">';
+      galeriaHTML += '<p>' + descripcion + '</p>';
+      galeriaHTML += '</div>';
+
+      // Obtener el elemento donde se mostrará la galería de imágenes y establecer el HTML generado
+      var galeriaContainer = document.querySelector("#galeriaContainer");
+      galeriaContainer.innerHTML = galeriaHTML;
+
+      // Mensaje de voz para confirmar la visualización de la imagen y su descripción
+      let utterance = new SpeechSynthesisUtterance('El Instituto Tecnológico de Tlaxiaco se fundó el 22 de febrero de 1991. En ese entonces, la institución ofrecía dos carreras: Ingeniería Industrial y Administración Industrial.Actualmente, el Tecnológico de Tlaxiaco cuenta con una oferta académica más amplia ');
+      utterance.lang = 'es-MX';
+      speechSynthesis.speak(utterance);
+    }
+    //Funciona bien 
+    if (voz === 'galería') {
+      console.log("Estás solicitando una galería de fotos.");
+
+      // Array de URLs de imágenes para la galería
+      var imagenesGaleria = [
+        'https://cdn.glitch.global/1d48e5a5-8dae-4481-9953-618b1f2a3c42/0b634061-966a-4cbb-8cd4-ca2a8d3008b0.image.png?v=1716055283370',
+        'https://cdn.glitch.global/1d48e5a5-8dae-4481-9953-618b1f2a3c42/e7f7acbf-7d53-4a8b-8ba7-c7cef3975366.image.png?v=1716055210433',
+        'https://cdn.glitch.global/1d48e5a5-8dae-4481-9953-618b1f2a3c42/77633a79-0d15-42c9-b1a0-4d7e55e52a36.image.png?v=1716055315296',
+        'https://cdn.glitch.global/1d48e5a5-8dae-4481-9953-618b1f2a3c42/b34e0fbb-fb19-4c18-b161-d52046ec42ab.image.png?v=1716055291866',
+        'https://cdn.glitch.global/1d48e5a5-8dae-4481-9953-618b1f2a3c42/76d99fe6-f891-43e1-8ff0-619fe7469e08.image.png?v=1716055330476',
+        'https://cdn.glitch.global/1d48e5a5-8dae-4481-9953-618b1f2a3c42/d1b802f6-eb12-4750-a34d-f19f469b7f2b.image.png?v=1716055233547',
+        'https://cdn.glitch.global/1d48e5a5-8dae-4481-9953-618b1f2a3c42/a8ddaa22-9b27-46e6-a93b-4a579bde3169.image.png?v=1716055174821'
+        // Puedes añadir más URLs de imágenes aquí
+      ];
+
+      // Generar el HTML para la galería de fotos
+      var galeriaHTML = '<div class="galeria-fotos">';
+      imagenesGaleria.forEach(function (url) {
+        galeriaHTML += '<img class="imagen-galeria-foto" src="' + url + '" alt="Foto de la galería">';
+      });
+      galeriaHTML += '</div>';
+
+      // Obtener el elemento donde se mostrará la galería de fotos y establecer el HTML generado
+      var galeriaContainer = document.querySelector("#galeriaContainer");
+      galeriaContainer.innerHTML = galeriaHTML;
+
+      // Mensaje de voz para confirmar la visualización de la galería
+      let utterance = new SpeechSynthesisUtterance('¡Claro que sí! El Tecnológico de Tlaxiaco ofrece una variedad de carreras interesantes y con gran demanda en el mercado laboral actual. Te voy a mencionar las carrras con las que cuenta .Ingeniería en Sistemas Computacionales,Ingeniería Industrial.Ingeniería en Gestión Empresarial.Licenciatura en Administración.Licenciatura en arquitectura.Ingenieria civil.Ingenieria en mecatronica');
+      utterance.lang = 'es-MX';
+      speechSynthesis.speak(utterance);
+    }
+
+    if (voz === 'ubicación') {
+      console.log("Estás solicitando mostrar una ubicación.");
+
+      // HTML para la ubicación en Google Maps dentro de un iframe
+      var mapHTML = `
+                <div id="mapContainer" class="map-container">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1925.986412450529!2d-97.69174869999999!3d17.249977799999993!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xabdf1f0ebfc924cf!2sTecNM%20Instituto%20Tecnol%C3%B3gico%20de%20Tlaxiaco!5e0!3m2!1ses!2smx!4v1635356325046!5m2!1ses!2smx"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            `;
+
+      // Obtener el elemento donde se mostrará el mapa y establecer el HTML generado
+      var body = document.querySelector("body");
+      var mapContainer = document.createElement("div");
+      mapContainer.innerHTML = mapHTML;
+      body.appendChild(mapContainer);
+
+      // Mensaje de voz para confirmar la visualización de la ubicación
+      let utterance = new SpeechSynthesisUtterance('Esta es la ubicacion del tecnologico de Tlaxiaco.');
+      utterance.lang = 'es-MX';
+      speechSynthesis.speak(utterance);
+    }
+
+
     if (voz === 'yakuin muéstrame a IronCat' || voz === 'yakuin Muéstrame a Iron Cat' || voz === 'yakuin Muéstrame a Iron Man' || voz === 'Muéstrame a Iron Cat' || voz === 'Muéstrame Iron Cat') {
       console.log("Estas queriendo visualizar el modelo ironcat");
 
@@ -653,55 +829,8 @@
 
     }
 
-    document.addEventListener('DOMContentLoaded', function() {
-      // Función para mostrar el video de YouTube relacionado con la oferta educativa
-      function mostrarOfertaEducativa() {
-        // Enlace del video de YouTube relacionado con la oferta educativa
-        const enlaceVideo = 'https://www.youtube.com/embed/Jr9vGSYu6lY';
-
-        // Selecciona el elemento en el que deseas incrustar el video (puedes cambiar el ID si es necesario)
-        const contenedorVideo = document.getElementById('videoContainer');
-
-        // Crea un elemento iframe
-        const iframe = document.createElement('iframe');
-
-        // Establece los atributos del iframe
-        iframe.setAttribute('src', enlaceVideo);
-        iframe.setAttribute('width', '560'); // Ancho del video (puedes ajustar según tus necesidades)
-        iframe.setAttribute('height', '315'); // Altura del video (puedes ajustar según tus necesidades)
-        iframe.setAttribute('frameborder', '0');
-        iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
-        iframe.setAttribute('allowfullscreen', 'true');
-
-        // Agrega el iframe al contenedor de video
-        contenedorVideo.appendChild(iframe);
-      }
-
-      // Interacción del usuario
-      const voz = ''; // Aquí deberías obtener la voz del usuario
-
-      if (voz === ' oferta educativa') {
-        console.log("Mostrando la oferta educativa.");
-
-        // Aquí puedes agregar el código para narrar lo que está sucediendo antes de mostrar la oferta educativa, si lo deseas
-
-        mostrarOfertaEducativa();
-      }
-    });
 
 
-    if (voz === 'yakuin muéstrame la luna' || voz === 'yakuin Muéstrame la luna') {
-      console.log("Estas mostrando un modelo 3D");
-      var es = document.querySelector('#avatar');
-      es.setAttribute("src", 'Assets/luna.glb');
-      es.setAttribute("scale", '.10 .10 .10');
-      el.setAttribute("position", '0 0 0');
-      el.setAttribute(animation, { 'property': position, 'to': { x: 1, y: 1, z: 1 }, 'startEvents': 'startanim001' });
-
-      let utterance = new SpeechSynthesisUtterance('luna a la vista. Aunque no se que tiene que ver con GitHub.')
-      utterance.lang = 'es-MX'
-      speechSynthesis.speak(utterance)
-    }
 
     console.log('Confidence: ' + event.results[0][0].confidence);
   }
@@ -719,6 +848,7 @@
     diagnostic.setAttribute("value", 'Ocurrio un error al escucharte: ' + event.error);
   }
 </script>
+
 
 
 </html>

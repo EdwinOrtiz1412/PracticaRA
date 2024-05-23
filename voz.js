@@ -11,7 +11,7 @@ window.contadorcubogrande=0;
   'dime tus caracteristicas',
   '¿que eres?',
   'oferta educativa',
-  'yakuin muéstrame a IronCat',
+  'carreras',
   'yakuin Muéstrame a Iron Cat',
   'yakuin Muéstrame a Iron Man',
   'Muéstrame a Iron Cat',
